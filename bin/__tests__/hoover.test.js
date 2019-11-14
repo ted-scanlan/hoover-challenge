@@ -2,7 +2,7 @@ const { Hoover } = require('../src/hoover');
 
 
 describe('Hoover', () => {
-// do a before each with a hoover
+  // do a before each with a hoover
   describe('Constructor', () => {
 
     it('stores the room size correctly', () => {
@@ -10,22 +10,29 @@ describe('Hoover', () => {
       expect(hoover.room).toEqual([5, 5])
     })
     it('stores the hoovers current location', () => {
-    const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
-    expect(hoover.coords).toEqual([1, 2])
-  })
-  it('stores patches cleaned', () => {
-    const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
-    expect(hoover.patchesCleaned).toEqual(0)
-  })
+      const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      expect(hoover.coords).toEqual([1, 2])
+    })
+    it('stores patches cleaned', () => {
+      const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      expect(hoover.patchesCleaned).toEqual(0)
+    })
   })
 
   describe('getDirtCoords', () => {
 
-  it('can return an array of locations of dirt',() => {
-    const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
-    expect(hoover.dirtCoords).toEqual(
-      [[1,0], [2,2], [2,3]]
-    )
+    it('can return an array of locations of dirt',() => {
+      const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      expect(hoover.dirtCoords).toEqual(
+        [[1,0], [2,2], [2,3]]
+      )
+    })
   })
-})
+
+  describe('processMove', () => {
+    it('increases the Y coord by 1 if N is inputted',() => {
+      const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      expect(hoover.processMove("N")).toEqual([1,3])
+    })
+  })
 })

@@ -20,6 +20,29 @@ class Hoover {
       return dirtCoords;
     }
   }
+
+  processMove(direction) {
+
+  if(direction == "N" || direction == "S") {
+    this.coords = this.calculateYCoords(direction);
+  }
+  return this.coords;
+}
+
+calculateYCoords(direction) {
+  if(direction == "N") {
+    if((this.coords[1] + 1) < this.room[1]) {
+      this.coords[1] += 1;
+    }
+    return this.coords;
+  }
+  if(direction == "S") {
+    if((this.coords[1] - 1) < this.room[1]) {
+      this.coords[1] -= 1;
+    }
+    return this.coords;
+  }
+}
 }
 
 
