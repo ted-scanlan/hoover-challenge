@@ -18,4 +18,14 @@ describe('Hoover', () => {
     expect(hoover.patchesCleaned).toEqual(0)
   })
   })
+
+  describe('getDirtCoords', () => {
+
+  it('can return an array of locations of dirt',() => {
+    const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+    expect(hoover.dirtCoords).toEqual(
+      [[1,0], [2,2], [2,3]]
+    )
+  })
+})
 })
