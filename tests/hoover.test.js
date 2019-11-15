@@ -76,6 +76,18 @@ describe('Hoover', () => {
     })
 
   })
+  describe('calculateXCoords', () => {
+    it('increases X coordinate if E input', () => {
+      const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      expect(hoover.calculateXCoords("E")).toEqual([2, 2])
+    })
+
+    it('decreases X coordinate if W input', () => {
+      const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      expect(hoover.calculateXCoords("W")).toEqual([0, 2])
+    })
+
+  })
 
 
 })

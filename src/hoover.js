@@ -21,7 +21,12 @@ class Hoover {
 
     if(direction == "N" || direction == "S") {
       this.coords = this.calculateYCoords(direction);
-    }
+    }else if(direction == "E" || direction == "W") {
+    this.coords = this.calculateXCoords(direction);
+  }
+  else {
+    this.coords = "incorrect direction inputted"
+  }
     return this.coords;
   }
 
