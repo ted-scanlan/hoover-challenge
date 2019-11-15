@@ -3,7 +3,6 @@ const { Hoover } = require('../src/hoover');
 
 describe('Hoover', () => {
 
-
   describe('Constructor', () => {
 
     it('stores the room size correctly', () => {
@@ -91,5 +90,14 @@ describe('Hoover', () => {
       })
 
 
-})
+    })
+    describe('outcome', () => {
+      it('returns the hoovers position and number of patches cleaned',() => {
+      const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      hoover.processMove("N")
+      hoover.checkForDirt([2,2])
+      expect(hoover.outcome()).toEqual("1 3\n1")
+
+    })
+  })
 })

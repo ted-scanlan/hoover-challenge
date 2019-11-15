@@ -22,11 +22,12 @@ class Hoover {
     if(direction == "N" || direction == "S") {
       this.coords = this.calculateYCoords(direction);
     }else if(direction == "E" || direction == "W") {
-    this.coords = this.calculateXCoords(direction);
-  }
-  else {
-    this.coords = "incorrect direction inputted"
-  }
+      this.coords = this.calculateXCoords(direction);
+    }
+    else {
+      this.coords = "incorrect direction inputted"
+    }
+    this.checkForDirt(this.coords)
     return this.coords;
   }
 
@@ -60,24 +61,20 @@ class Hoover {
   }
 }
 
-checkForDirt(position) {
+  checkForDirt(position) {
 
    for(var i = 0; i <= (this.dirtCoords.length-1); i++) {
      if(this.dirtCoords[i].toString() == position.toString()) {
        this.dirtCoords.splice(i, i)
        this.patchesCleaned+=1;
-     }
-   }
-}
-
+      }
+    }
+ }
   outcome() {
   return `${this.coords.join(' ')}\n${this.patchesCleaned}`
+  }
 
 }
-
-}
-
-
 
 module.exports = {
        Hoover
