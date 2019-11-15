@@ -2,7 +2,8 @@ const { Hoover } = require('../src/hoover');
 
 
 describe('Hoover', () => {
-  // do a before each with a hoover
+
+
   describe('Constructor', () => {
 
     it('stores the room size correctly', () => {
@@ -45,23 +46,10 @@ describe('Hoover', () => {
       expect(hoover.processMove("E")).toEqual([5,1])
     })
 
-
-    //
-    // it('decreases the Y coord by 1 if S is inputted',() => {
-    //   const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
-    //   expect(hoover.processMove("S")).toEqual([1,1])
-    // })
-    //
-    //
-    // it('can increases the X coord by 1 if E is inputted',() => {
-    //   const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
-    //   expect(hoover.processMove("E")).toEqual([2,2])
-    // })
-    //
-    // it('can decreases the X coord by 1 if W is inputted',() => {
-    //   const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
-    //   expect(hoover.processMove("W")).toEqual([0,2])
-    // })
+    it('gives error for incorrect input', () => {
+      const hoover = new Hoover([ '5 5', '5 1', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      expect(hoover.processMove("X")).toEqual("incorrect direction inputted")
+    })
   })
 
   describe('calculateYCoords', () => {
@@ -89,5 +77,19 @@ describe('Hoover', () => {
 
   })
 
+  describe('checkForDirt', () => {
+    it('logs a patch that has been cleaned',() => {
+      const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      hoover.checkForDirt([2,2])
+      expect(hoover.patchesCleaned).toEqual(1)
+      })
 
+    it('removes the patch from the dirt locations',() => {
+      const hoover = new Hoover([ '5 5', '1 2', '1 0', '2 2', '2 3', 'NNESEESWNWW', '' ])
+      hoover.checkForDirt([2,2])
+      expect(hoover.dirtCoords).toEqual([[1,0],[2,3]])
+      })
+
+
+})
 })

@@ -60,6 +60,16 @@ class Hoover {
   }
 }
 
+checkForDirt(position) {
+
+   for(var i = 0; i <= (this.dirtCoords.length-1); i++) {
+     if(this.dirtCoords[i].toString() == position.toString()) {
+       this.dirtCoords.splice(i, i)
+       this.patchesCleaned+=1;
+     }
+   }
+}
+
   outcome() {
   return `${this.coords.join(' ')}\n${this.patchesCleaned}`
 
