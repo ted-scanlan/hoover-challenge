@@ -35,6 +35,8 @@ npm test
 
 ### Input/Output ###
 
+
+#### Input ####
 The information that will be passed into the program can be found in the 'input.txt' file in the src folder. The default settings are as follows:
 
 ```
@@ -54,8 +56,23 @@ To give the program your own instructions, edit the 'input.txt' file. However, w
 * After this, You can then set the locations of the patches of dirt, by giving their coordinate locations, one per line.
 * The last line should contain the directions, using capital letters with no spacing (N for North, S for South, E for East, W for West).
 
+#### Output ####
 
-#### My Approach ####
+The output of the program will be displayed through the Standard Output of the terminal. It will consist of two lines:
+
+* The first line is the X and Y coordinates of the Hoovers end point after completing its journey.
+
+* The second line contains the total number of patches of dirt cleaned by the hoover on its journey. 
+
+Running the default settings will output:
+
+```
+1 3
+1
+```
+
+
+### My Approach ###
 
 I planned my approach by splitting down the tasks that would need to happen in order to get an outcome. These were:
  * Taking a direction from the input
