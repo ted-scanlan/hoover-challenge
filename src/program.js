@@ -20,8 +20,6 @@ class Program {
 
 }
 
-
   module.exports = {
-    // getDirections,
       Program
   };
